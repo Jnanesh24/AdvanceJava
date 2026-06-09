@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd" 
+xmlns:p="http://www.springframework.org/schema/p" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://www.springframework.org/schema/beans">
+
+<bean  name="student1" class=" com.jsp.springautowiring.springjdbc.Student" 
+p:id=" 120" p:name="jnanesh"/>
+
+<bean  name="student2" class=" com.jsp.springautowiring.springjdbc.Student" 
+p:id=" 130" p:name="Girish"/>
+
+<bean  name="student3" class=" com.jsp.springautowiring.springjdbc.Student" 
+p:id=" 140" p:name="Srisha"/>
+
+<bean  name="student4" class=" com.jsp.springautowiring.springjdbc.Student" 
+p:id=" 150" p:name="Anup"/>
+
+<bean  name="dataSource" class=" org.springframework.jdbc.datasource.DriverManagerDataSource" 
+p:driverClassName="com.mysql.cj.jdbc.Driver"
+p:url="jdbc:mysql://localhost/besm28"
+p:username="root"
+p:password="root"/>
+
+
+<bean  name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" 
+p:dataSource-ref="dataSource"/>
+
+<bean name=" studentDAOImpl" class="com.jsp.springautowiring.springjdbc.StudentDAOImpl"
+p:jdbcTemplate-ref="jdbcTemplate"/>
+
+
+
+ </beans>
